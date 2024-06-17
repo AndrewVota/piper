@@ -70,6 +70,9 @@ func main() {
         fmt.Printf("error starting piper: %s", err)
     }
     defer pipe.Stop()
+
+    // Rest of your program...
+    fmt.Println("Hello, World.")
 }
 ```
 
