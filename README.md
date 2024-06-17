@@ -13,7 +13,7 @@
   <a href="#how-to-use">How To Use</a> •
   <a href="#cli-options">CLI Options</a> •
   <a href="#config-file-settings">Config File Settings</a> •
-  <a href="#download">Download</a> •
+  <a href="#download">Download</a>
 </p>
 
 ![screenshot](https://via.placeholder.com/800x400)
