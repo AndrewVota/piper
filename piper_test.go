@@ -22,10 +22,7 @@ func TestMain(m *testing.M) {
 	token = os.Getenv("DISCORD_TOKEN")
 	channelID = os.Getenv("DISCORD_CHANNEL_ID")
 
-	// Run the tests
 	code := m.Run()
-
-	// Exit with the code returned by m.Run
 	os.Exit(code)
 }
 
