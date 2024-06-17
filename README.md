@@ -16,7 +16,7 @@
   <a href="#download">Download</a>
 </p>
 
-![screenshot](https://via.placeholder.com/800x400)
+![demo](./.github/assets/piper.gif)
 
 ## Key Features
 
