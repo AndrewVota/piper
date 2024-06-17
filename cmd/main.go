@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/andrewvota/piper/piper"
+	"github.com/andrewvota/piper"
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
@@ -27,11 +27,9 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.piper.yaml)")
 	rootCmd.PersistentFlags().StringVar(&token, "token", "", "Discord bot token")
 	rootCmd.PersistentFlags().StringVar(&channelID, "channelID", "", "Discord channel ID")
-	rootCmd.PersistentFlags().BoolVar(&useStdin, "stdin", true, "Read from stdin instead of stdout")
 
 	_ = viper.BindPFlag("token", rootCmd.PersistentFlags().Lookup("token"))
 	_ = viper.BindPFlag("channelID", rootCmd.PersistentFlags().Lookup("channelID"))
-	_ = viper.BindPFlag("stdin", rootCmd.PersistentFlags().Lookup("stdin"))
 }
 
 func initConfig() {
@@ -69,16 +67,7 @@ func run(cmd *cobra.Command, args []string) error {
 		}
 	}()
 
-	if viper.GetBool("stdin") {
-		return runFromStdin(pipe)
-	}
-
-	err = pipe.Start()
-	if err != nil {
-		return fmt.Errorf("error starting pipe: %w", err)
-	}
-
-	return nil
+	return runFromStdin(pipe)
 }
 
 func runFromStdin(pipe *piper.Pipe) error {
