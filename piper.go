@@ -65,7 +65,7 @@ func (c *Pipe) Start() error {
 				c.outputChannel <- string(output)
 				_, err := c.Discord.ChannelMessageSend(c.ChannelID, string(output))
 				if err != nil {
-					fmt.Printf("Error sending message to Discord: %s", err)
+					fmt.Printf("error sending message to Discord: %s", err)
 				}
 			}
 		}
