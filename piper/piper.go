@@ -61,7 +61,7 @@ func (c *Pipe) Start() error {
 			}
 			if n > 0 {
 				output := buf[:n]
-				c.originalStdout.Write(output)
+				_, _ = c.originalStdout.Write(output)
 				c.outputChannel <- string(output)
 				_, err := c.Discord.ChannelMessageSend(c.ChannelID, string(output))
 				if err != nil {

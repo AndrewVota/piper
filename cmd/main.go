@@ -29,9 +29,9 @@ func init() {
 	rootCmd.PersistentFlags().StringVar(&channelID, "channelID", "", "Discord channel ID")
 	rootCmd.PersistentFlags().BoolVar(&useStdin, "stdin", true, "Read from stdin instead of stdout")
 
-	viper.BindPFlag("token", rootCmd.PersistentFlags().Lookup("token"))
-	viper.BindPFlag("channelID", rootCmd.PersistentFlags().Lookup("channelID"))
-	viper.BindPFlag("stdin", rootCmd.PersistentFlags().Lookup("stdin"))
+	_ = viper.BindPFlag("token", rootCmd.PersistentFlags().Lookup("token"))
+	_ = viper.BindPFlag("channelID", rootCmd.PersistentFlags().Lookup("channelID"))
+	_ = viper.BindPFlag("stdin", rootCmd.PersistentFlags().Lookup("stdin"))
 }
 
 func initConfig() {
@@ -63,7 +63,11 @@ func run(cmd *cobra.Command, args []string) error {
 	if err != nil {
 		return fmt.Errorf("error creating pipe: %w", err)
 	}
-	defer pipe.Stop()
+	defer func() {
+		if err := pipe.Stop(); err != nil {
+			fmt.Println("Error stopping pipe:", err)
+		}
+	}()
 
 	if viper.GetBool("stdin") {
 		return runFromStdin(pipe)
