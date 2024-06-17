@@ -112,4 +112,4 @@ MIT
 
 > Website [Vota.cc](https://www.vota.cc) &nbsp;&middot;&nbsp;
 > GitHub [@AndrewVota](https://github.com/AndrewVota) &nbsp;&middot;&nbsp;
-> LinkedIn [@AndrewVota](https://linkedin/in/AndrewVota) &nbsp;&middot;
+> LinkedIn [@AndrewVota](https://linkedin/in/AndrewVota) &nbsp;
