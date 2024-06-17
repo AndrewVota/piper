@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/AndrewVota/piper/compare/v0.1.1...v0.2.0) (2024-06-17)
+
+
+### Features
+
+* Install script ([fe3879a](https://github.com/AndrewVota/piper/commit/fe3879a526133262d9e18c17aed381a1652fd485))
+
 ## [0.1.1](https://github.com/AndrewVota/piper/compare/v0.1.1...v0.1.1) (2024-06-17)
 
 
