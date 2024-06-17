@@ -39,7 +39,7 @@ Then, you can run the application from your terminal:
 
 ```bash
 # Pipe std.in to Discord
-$ echo "Hello, Discord!" | piper
+$ echo "Hello, Discord!" | piper --token "your_secret_token" --channelID "your_channel_id"
 ```
 
 ### Golang Package
@@ -60,7 +60,7 @@ import (
 )
 
 func main() {
-    pipe, err := piper.NewPipe("your_discord_application_secret", "your_channel_id")
+    pipe, err := piper.NewPipe("your_secret_token", "your_channel_id")
     if err != nil {
         fmt.Printf("error creating pipe: %s", err)
     }
@@ -91,8 +91,8 @@ You can configure Piper using a config file. The default config file location is
 Example config file:
 
 ```yaml
-token: your_discord_bot_token
-channel: your_discord_channel_id
+token: your_secret_token
+channel: your_channel_id
 ```
 
 ## Download
