@@ -13,7 +13,6 @@
   <a href="#how-to-use">How To Use</a> •
   <a href="#cli-options">CLI Options</a> •
   <a href="#config-file-settings">Config File Settings</a> •
-  <a href="#golang-library-options">Golang Library Options</a> •
   <a href="#download">Download</a> •
 </p>
 
@@ -41,9 +40,6 @@ Then, you can run the application from your terminal:
 ```bash
 # Pipe std.in to Discord
 $ echo "Hello, Discord!" | piper
-
-# Pipe std.out from a command to Discord
-$ some_command | piper
 ```
 
 ### Golang Package
@@ -64,7 +60,16 @@ import (
 )
 
 func main() {
-    piper.SendToDiscord("Hello, Discord!")
+    pipe, err := piper.NewPipe("your_discord_application_secret", "your_channel_id")
+    if err != nil {
+        fmt.Printf("error creating pipe: %s", err)
+    }
+
+    err = pipe.Start()
+    if err != nil {
+        fmt.Printf("error starting piper: %s", err)
+    }
+    defer pipe.Stop()
 }
 ```
 
@@ -72,10 +77,9 @@ func main() {
 
 The Piper CLI supports the following options:
 
-* `-t, --token` - Discord bot token
-* `-c, --channel` - Discord channel ID
-* `-m, --message` - Message to send
-* `-f, --file` - Path to file to send
+* `--token` - Discord bot token
+* `--channelID` - Discord channel ID
+* `--config` - Config file (default is $HOME/.piper.yaml)
 
 ## Config File Settings
 
@@ -83,38 +87,12 @@ You can configure Piper using a config file. The default config file location is
 
 * `token` - Discord bot token
 * `channel` - Discord channel ID
-* `message` - Default message
-* `file` - Default file path
 
 Example config file:
 
 ```yaml
 token: your_discord_bot_token
 channel: your_discord_channel_id
-message: Default message
-file: /path/to/default/file
-```
-
-## Golang Library Options
-
-The Piper Golang package provides the following functions:
-
-* `SendToDiscord(message string)` - Sends a message to Discord
-* `SendFileToDiscord(filePath string)` - Sends a file to Discord
-
-Example usage:
-
-```go
-package main
-
-import (
-    "github.com/andrewvota/piper"
-)
-
-func main() {
-    piper.SendToDiscord("Hello, Discord!")
-    piper.SendFileToDiscord("/path/to/file.txt")
-}
 ```
 
 ## Download
@@ -127,6 +105,6 @@ MIT
 
 ---
 
-> [vota.cc] (https://www.vota.cc) &nbsp;&middot;&nbsp;
+> Website (https://www.vota.cc) &nbsp;&middot;&nbsp;
 > GitHub [@AndrewVota](https://github.com/AndrewVota) &nbsp;&middot;&nbsp;
 > Twitter [@AndrewVota](https://twitter.com/AndrewVota)
