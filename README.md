@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="https://github.com/AndrewVota/piper"><img src="https://via.placeholder.com/200" alt="Piper" width="200"></a>
+  <a href="https://github.com/AndrewVota/piper"><img src="./.github/assets/logo.png" alt="Piper" width="200"></a>
   <br>
   Piper
   <br>
