@@ -11,7 +11,7 @@ import (
 type Pipe struct {
 	Token          string
 	ChannelID      string
-	discord        *discordgo.Session
+	Discord        *discordgo.Session
 	originalStdout *os.File
 	pipeReader     *os.File
 	pipeWriter     *os.File
@@ -33,7 +33,7 @@ func NewPipe(token string, channelID string) (*Pipe, error) {
 	return &Pipe{
 		Token:          token,
 		ChannelID:      channelID,
-		discord:        discord,
+		Discord:        discord,
 		originalStdout: os.Stdout,
 		outputChannel:  make(chan string, 1),
 		done:           make(chan bool),
@@ -63,7 +63,7 @@ func (c *Pipe) Start() error {
 				output := buf[:n]
 				c.originalStdout.Write(output)
 				c.outputChannel <- string(output)
-				_, err := c.discord.ChannelMessageSend(c.ChannelID, string(output))
+				_, err := c.Discord.ChannelMessageSend(c.ChannelID, string(output))
 				if err != nil {
 					fmt.Printf("Error sending message to Discord: %s", err)
 				}
