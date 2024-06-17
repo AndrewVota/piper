@@ -72,7 +72,7 @@ func main() {
     defer pipe.Stop()
 
     // Rest of your program...
-    fmt.Println("Hello, World.")
+    fmt.Println("Hello, World.") // This will be sent to discord!
 }
 ```
 
