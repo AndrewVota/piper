@@ -14,7 +14,6 @@ var (
 	cfgFile   string
 	token     string
 	channelID string
-	useStdin  bool
 	rootCmd   = &cobra.Command{
 		Use:   "piper",
 		Short: "Piper is a tool to pipe stdout or stdin to Discord",
