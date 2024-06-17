@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.2](https://github.com/AndrewVota/piper/compare/v0.3.1...v0.3.2) (2024-06-17)
+
+
+### Features
+
+* Instructions to configure Discord ([a16440c](https://github.com/AndrewVota/piper/commit/a16440cfc0c5790e081e9cb7aac8719c46642fa6))
+
+
+### Miscellaneous Chores
+
+* Release 0.3.2 ([163f6f6](https://github.com/AndrewVota/piper/commit/163f6f6c8ee304a9a71058a990f99332f5abec9f))
+
 ## [0.3.1](https://github.com/AndrewVota/piper/compare/v0.3.0...v0.3.1) (2024-06-17)
 
 
