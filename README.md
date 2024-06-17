@@ -16,7 +16,7 @@
   <a href="#download">Download</a>
 </p>
 
-![demo](./.github/assets/piper.gif)
+![usage](./.github/assets/piper.gif)
 
 ## Key Features
 
@@ -88,10 +88,10 @@ The Piper CLI supports the following options:
 
 ## Config File Settings
 
-You can configure Piper using a config file. The default config file location is `~/.piper/config.yaml`. The following settings are available:
+You can configure Piper using a config file. The config file will be searched for at `~/.piper/config.yaml`. The following settings are available:
 
 * `token` - Discord bot token
-* `channel` - Discord channel ID
+* `channelID` - Discord channel ID
 
 Example config file:
 
