@@ -39,6 +39,8 @@ Then, you can run the application from your terminal:
 
 ```bash
 # Pipe std.in to Discord
+# You can create a config file to forego arguments
+# Default location to create it: $HOME/.piper.yaml
 $ echo "Hello, Discord!" | piper --token "your_secret_token" --channelID "your_channel_id"
 ```
 
