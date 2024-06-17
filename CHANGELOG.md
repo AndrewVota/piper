@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.1](https://github.com/AndrewVota/piper/compare/v0.3.0...v0.3.1) (2024-06-17)
+
+
+### Features
+
+* `README.md` changes ([2e864a6](https://github.com/AndrewVota/piper/commit/2e864a638900f9c3121cecd9dd05493d29053e42))
+* Add usage gif ([d75bb61](https://github.com/AndrewVota/piper/commit/d75bb6161bd0d76f159d83112b55d0653763a144))
+* Add usage gif ([d75bb61](https://github.com/AndrewVota/piper/commit/d75bb6161bd0d76f159d83112b55d0653763a144))
+
+
+### Miscellaneous Chores
+
+* Release 0.3.1 ([af1bca3](https://github.com/AndrewVota/piper/commit/af1bca30592ebee99aebed148f280b39dd1c8da3))
+
 ## [0.3.0](https://github.com/AndrewVota/piper/compare/v0.2.0...v0.3.0) (2024-06-17)
 
 
