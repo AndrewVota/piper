@@ -44,7 +44,7 @@ func (c *Pipe) Start() error {
 	var err error
 	c.pipeReader, c.pipeWriter, err = os.Pipe()
 	if err != nil {
-		return err
+		return fmt.Errorf("error returning the os pipe: %w", err)
 	}
 
 	os.Stdout = c.pipeWriter
@@ -75,15 +75,14 @@ func (c *Pipe) Start() error {
 	return nil
 }
 
-func (c *Pipe) Stop() (string, error) {
+func (c *Pipe) Stop() error {
 	err := c.pipeWriter.Close()
 	if err != nil {
-		return "", err
+		return fmt.Errorf("error closing the pipe writer: %w", err)
 	}
 
 	<-c.done
-	output := <-c.outputChannel
 
 	os.Stdout = c.originalStdout
-	return output, nil
+	return nil
 }
