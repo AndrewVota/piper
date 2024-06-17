@@ -27,6 +27,34 @@
 
 ## How To Use
 
+### Creating a Discord App
+
+To use Piper with Discord, you'll need to create a Discord app and obtain a bot token. Follow these steps:
+
+1. **Go to the Discord Developer Portal**:
+   - Visit the [Discord Developer Portal](https://discord.com/developers/applications).
+
+2. **Create a New Application**:
+   - Click on "New Application".
+   - Give your application a name and click "Create".
+
+3. **Create a Bot**:
+   - Navigate to the "Bot" tab on the left sidebar.
+   - Click "Add Bot" and confirm by clicking "Yes, do it!".
+   - Keep the token safe by clicking "Copy" under the "TOKEN" section. You will need this token for Piper.
+
+4. **Invite the Bot to Your Server**:
+   - Go to the "OAuth2" tab on the left sidebar.
+   - Under "OAuth2 URL Generator", select "bot" in the "SCOPES" section.
+   - In the "BOT PERMISSIONS" section, select "Send Messages" and "Manage Messages".
+   - Copy the generated URL and paste it into your browser. Select the server you want to invite the bot to and authorize the bot.
+
+5. **Get the Channel ID**:
+   - Open Discord and go to "User Settings" > "Advanced" > enable "Developer Mode".
+   - Right-click on the channel where you want the messages to be sent and select "Copy ID".
+
+Now you have everything you need to configure Piper with your Discord bot.
+
 ### CLI Application
 
 To use Piper as a CLI application, install it using the following command:
