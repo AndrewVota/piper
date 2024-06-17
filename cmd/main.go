@@ -61,9 +61,7 @@ func run(cmd *cobra.Command, args []string) error {
 		return fmt.Errorf("error creating pipe: %w", err)
 	}
 	defer func() {
-		if err := pipe.Stop(); err != nil {
-			fmt.Println("Error stopping pipe:", err)
-		}
+		_ = pipe.Stop()
 	}()
 
 	return runFromStdin(pipe)
