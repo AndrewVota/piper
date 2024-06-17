@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.0](https://github.com/AndrewVota/piper/compare/v0.2.0...v0.3.0) (2024-06-17)
+
+
+### Features
+
+* Remove `tar` check ([4adafd6](https://github.com/AndrewVota/piper/commit/4adafd6047a54da1d842c4cb739b05ceb4bb8b58))
+* Remove error logging on `stdin` cmd ([25e3625](https://github.com/AndrewVota/piper/commit/25e362542639c01945914235fe93bfc87c3d0924))
+* Repository readme ([e62364b](https://github.com/AndrewVota/piper/commit/e62364b43a7f3ec3c24d218342fcaef9ad963236))
+
 ## [0.2.0](https://github.com/AndrewVota/piper/compare/v0.1.1...v0.2.0) (2024-06-17)
 
 
