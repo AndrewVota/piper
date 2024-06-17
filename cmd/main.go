@@ -7,9 +7,11 @@ import (
 
 	"github.com/andrewvota/piper/piper"
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
 
 var (
+	cfgFile   string
 	token     string
 	channelID string
 	useStdin  bool
@@ -21,21 +23,49 @@ var (
 )
 
 func init() {
+	cobra.OnInitialize(initConfig)
+	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.piper.yaml)")
 	rootCmd.PersistentFlags().StringVar(&token, "token", "", "Discord bot token")
 	rootCmd.PersistentFlags().StringVar(&channelID, "channelID", "", "Discord channel ID")
 	rootCmd.PersistentFlags().BoolVar(&useStdin, "stdin", true, "Read from stdin instead of stdout")
-	rootCmd.MarkPersistentFlagRequired("token")
-	rootCmd.MarkPersistentFlagRequired("channelID")
+
+	viper.BindPFlag("token", rootCmd.PersistentFlags().Lookup("token"))
+	viper.BindPFlag("channelID", rootCmd.PersistentFlags().Lookup("channelID"))
+	viper.BindPFlag("stdin", rootCmd.PersistentFlags().Lookup("stdin"))
+}
+
+func initConfig() {
+	if cfgFile != "" {
+		viper.SetConfigFile(cfgFile)
+	} else {
+		home, err := os.UserHomeDir()
+		cobra.CheckErr(err)
+		viper.AddConfigPath(home)
+		viper.SetConfigName(".piper")
+	}
+
+	viper.AutomaticEnv()
+
+	if err := viper.ReadInConfig(); err == nil {
+		fmt.Println("Using config file:", viper.ConfigFileUsed())
+	}
 }
 
 func run(cmd *cobra.Command, args []string) error {
+	token := viper.GetString("token")
+	channelID := viper.GetString("channelID")
+
+	if token == "" || channelID == "" {
+		return fmt.Errorf("token and channelID must be set either as flags or in the config file")
+	}
+
 	pipe, err := piper.NewPipe(token, channelID)
 	if err != nil {
 		return fmt.Errorf("error creating pipe: %w", err)
 	}
 	defer pipe.Stop()
 
-	if useStdin {
+	if viper.GetBool("stdin") {
 		return runFromStdin(pipe)
 	}
 
